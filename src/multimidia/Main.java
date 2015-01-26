@@ -172,6 +172,8 @@ public class Main {
 					System.out.println(String.format("Successful - %dº music", analysis.third));
 				}
 			}
+			
+			threadPool.shutdownNow();
 		}
 
 		System.out.println(String.format("Ended after %s seconds", Duration.between(begin, Instant.now()).getSeconds()));
