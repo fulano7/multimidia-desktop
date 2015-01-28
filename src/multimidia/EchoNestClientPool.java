@@ -13,7 +13,7 @@ public final class EchoNestClientPool {
 			protected final EchoNestAPI initialValue() {
 				final Thread thread = Thread.currentThread();
 
-				final int id = Integer.valueOf(thread.getName().replace("AnalysisThread#", ""));
+				final int id = Integer.parseInt(thread.getName().replace("AnalysisThread#", ""));
 
 				final String apiKey = keys.get(id);
 
