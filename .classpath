@@ -6,6 +6,7 @@
 	<classpathentry kind="lib" path="libs/threetenbp-1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="libs/weka.jar"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="libs/basicplayer3.0.jar"/>
 	<classpathentry kind="lib" path="libs/commons-logging-api.jar"/>
 	<classpathentry kind="lib" path="libs/jflac-1.2.jar"/>
@@ -18,5 +19,7 @@
 	<classpathentry kind="lib" path="libs/mp3spi1.9.4.jar"/>
 	<classpathentry kind="lib" path="libs/tritonus_share.jar"/>
 	<classpathentry kind="lib" path="libs/vorbisspi1.0.2.jar"/>
+=======
+>>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 	<classpathentry kind="output" path="bin"/>
 </classpath>

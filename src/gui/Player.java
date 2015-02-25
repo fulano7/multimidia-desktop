@@ -17,24 +17,33 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 import multimidia.Musica;
+<<<<<<< HEAD
 import multimidia.PlayerHandler;
+=======
+>>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 import multimidia.Principal;
 
 import java.awt.Font;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import javax.swing.ImageIcon;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+=======
+>>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 public class Player extends JFrame {
 
 	private JPanel contentPane;
 	private static int valencia;
 	private static int ativacao;
 	private static ArrayList<Musica> listaPorHumor;
+<<<<<<< HEAD
 	private PlayerHandler player = new PlayerHandler();
+=======
+>>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 	
 	/**
 	 * Launch the application.
@@ -55,7 +64,11 @@ public class Player extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+<<<<<<< HEAD
 	public Player(final int valencia, final int ativacao,final ArrayList<Musica> listaPorHumor) {
+=======
+	public Player(final int valencia, final int ativacao,ArrayList<Musica> listaPorHumor) {
+>>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 496);
 		contentPane = new JPanel();
@@ -79,6 +92,7 @@ public class Player extends JFrame {
 		lblHumor2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 12));
 		lblHumor2.setBounds(70, 16, 210, 33);
 		contentPane.add(lblHumor2);
+<<<<<<< HEAD
 		
 		final JLabel lblleft = new JLabel("");
 		lblleft.addMouseListener(new MouseAdapter() {
@@ -122,6 +136,8 @@ public class Player extends JFrame {
 		lblrandom.setIcon(new ImageIcon(Player.class.getResource("/imgs/random_red.png")));
 		lblrandom.setBounds(443, 413, 74, 43);
 		contentPane.add(lblrandom);
+=======
+>>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 		this.valencia = valencia;
 		this.ativacao = ativacao;
 		this.listaPorHumor = listaPorHumor;
@@ -146,4 +162,8 @@ public class Player extends JFrame {
 		
 		
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 }
