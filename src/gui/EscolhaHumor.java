@@ -1,26 +1,24 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Image;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Vector;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import multimidia.Musica;
 import multimidia.Principal;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Font;
 
 public class EscolhaHumor extends JFrame {
 
@@ -57,6 +55,9 @@ public class EscolhaHumor extends JFrame {
 	 * Create the frame.
 	 */
 	public EscolhaHumor() {
+		setType(Type.UTILITY);
+		setResizable(false);
+		setTitle("\"Projeto de Multim\u00EDdia\"");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 496);
 		contentPane = new JPanel();
@@ -64,7 +65,6 @@ public class EscolhaHumor extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setResizable(false);
 		
 		JLabel lblEscolhaOSeu = new JLabel("Escolha o seu humor :");
 		lblEscolhaOSeu.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 12));
@@ -205,6 +205,7 @@ public class EscolhaHumor extends JFrame {
 		contentPane.add(lbl_relax);
 		
 		invert = new JLabel("");
+		invert.setToolTipText("Inverter o humor");
 		invert.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -257,6 +258,7 @@ public class EscolhaHumor extends JFrame {
 		contentPane.add(invert);
 		
 		lbl_ok = new JLabel("");
+		lbl_ok.setToolTipText("Proceder");
 		lbl_ok.setIcon(new ImageIcon(EscolhaHumor.class.getResource("/imgs/ok.png")));
 		lbl_ok.setBounds(477, 427, 60, 40);
 		contentPane.add(lbl_ok);
@@ -271,7 +273,7 @@ public class EscolhaHumor extends JFrame {
 					e.printStackTrace();
 				}
 				
-				ArrayList<Musica> listaPorHumor = splitList(valencia, ativacao);
+				Vector<Musica> listaPorHumor = splitList(valencia, ativacao);
 				Player framePlayer = new Player(valencia, ativacao,listaPorHumor);
 				framePlayer.setVisible(true);
 					
@@ -284,9 +286,9 @@ public class EscolhaHumor extends JFrame {
 	}
 	
 	
-	public static ArrayList<Musica> splitList(int valencia, int ativacao){
-		ArrayList<Musica> lista = Principal.listaMusicas;
-		ArrayList<Musica> res = new ArrayList<Musica>();
+	public static Vector<Musica> splitList(int valencia, int ativacao){
+		Vector<Musica> lista = Principal.listaMusicas;
+		Vector<Musica> res = new Vector<Musica>();
 		for(Musica m : lista){
 			System.out.println("valencia : " + m.getValencia() + " Ativacao "+ m.getAtivacao() + " v " + valencia + " a "+ ativacao);
 			if(m.getValencia() == valencia && m.getAtivacao() == ativacao){

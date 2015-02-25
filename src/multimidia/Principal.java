@@ -2,15 +2,11 @@ package multimidia;
 
 
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.PriorityQueue;
+import java.util.Vector;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,7 +23,7 @@ import com.echonest.api.v4.Track;
 import com.echonest.api.v4.Track.AnalysisStatus;
 
 public class Principal {
-	public static ArrayList <Musica> listaMusicas =  new ArrayList<Musica>();
+	public static Vector<Musica> listaMusicas =  new Vector<Musica>();
 	
 	public static void echonestMagic() throws Exception {
 		final Instant begin = Instant.now();
@@ -41,7 +37,7 @@ public class Principal {
 		apiKeys.put(4, "B8JTSHJGCDLFTCPKM ");
 		apiKeys.put(5, "3FWTLRQV62Z6CIG4B ");
 
-		final File musicDir = new File("C:\\Users\\manuela\\Desktop\\musics"); // Diretório sensível.
+		final File musicDir = new File("C:\\Users\\irvm\\Music\\testes"); // Diretório sensível.
 		int valencia = -1;
 		int ativacao = -1;
 		

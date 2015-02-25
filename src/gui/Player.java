@@ -1,11 +1,30 @@
 package gui;
 
-public class Player extends JFrame {
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Vector;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import multimidia.Musica;
+import multimidia.PlayerHandler;
+
+public class Player extends JFrame {
+	private static final long serialVersionUID = 7731945534799370506L;
+	
 	private JPanel contentPane;
 	private static int valencia;
 	private static int ativacao;
-	private static ArrayList<Musica> listaPorHumor;
+	private static Vector<Musica> listaPorHumor;
 	private PlayerHandler player = new PlayerHandler();
 	
 	/**
@@ -27,11 +46,7 @@ public class Player extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-<<<<<<< HEAD
-	public Player(final int valencia, final int ativacao,final ArrayList<Musica> listaPorHumor) {
-=======
-	public Player(final int valencia, final int ativacao,ArrayList<Musica> listaPorHumor) {
->>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
+	public Player(final int valencia, final int ativacao, final Vector<Musica> listaPorHumor) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 496);
 		contentPane = new JPanel();
@@ -40,22 +55,20 @@ public class Player extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		//JList list = new JList();
-		//list.setBackground(Color.WHITE);
-		//list.setBounds(43, 387, 420, -321);
-		//contentPane.add(list);
+		JList list = new JList(listaPorHumor);
+		list.setBackground(Color.WHITE);
+		list.setBounds(43, 387, 420, -321);
+		contentPane.add(list);
 		
 		JLabel lblHumor = new JLabel("Humor : ");
 		lblHumor.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 12));
 		lblHumor.setBounds(21, 16, 90, 33);
 		contentPane.add(lblHumor);
 		
-		
 		JLabel lblHumor2 = new JLabel("");
 		lblHumor2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 12));
 		lblHumor2.setBounds(70, 16, 210, 33);
 		contentPane.add(lblHumor2);
-<<<<<<< HEAD
 		
 		final JLabel lblleft = new JLabel("");
 		lblleft.addMouseListener(new MouseAdapter() {
@@ -99,11 +112,10 @@ public class Player extends JFrame {
 		lblrandom.setIcon(new ImageIcon(Player.class.getResource("/imgs/random_red.png")));
 		lblrandom.setBounds(443, 413, 74, 43);
 		contentPane.add(lblrandom);
-=======
->>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
-		this.valencia = valencia;
-		this.ativacao = ativacao;
-		this.listaPorHumor = listaPorHumor;
+		
+		Player.valencia = valencia;
+		Player.ativacao = ativacao;
+		Player.listaPorHumor = listaPorHumor;
 		System.out.println("size : "+ listaPorHumor.size());
 		this.setResizable(false);
 		
@@ -125,8 +137,5 @@ public class Player extends JFrame {
 		
 		
 	}
-<<<<<<< HEAD
-=======
 	
->>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 }
