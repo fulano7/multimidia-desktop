@@ -1,49 +1,12 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-
-import multimidia.Musica;
-<<<<<<< HEAD
-import multimidia.PlayerHandler;
-=======
->>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
-import multimidia.Principal;
-
-import java.awt.Font;
-import java.util.ArrayList;
-
-<<<<<<< HEAD
-import javax.swing.ImageIcon;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-=======
->>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 public class Player extends JFrame {
 
 	private JPanel contentPane;
 	private static int valencia;
 	private static int ativacao;
 	private static ArrayList<Musica> listaPorHumor;
-<<<<<<< HEAD
 	private PlayerHandler player = new PlayerHandler();
-=======
->>>>>>> 0dc3ed2366d8d7240567dea2fd58c1bb39842b6f
 	
 	/**
 	 * Launch the application.
