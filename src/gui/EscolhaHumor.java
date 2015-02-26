@@ -5,19 +5,23 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import multimidia.Musica;
+import multimidia.NoMusicFoundExpection;
 import multimidia.Principal;
 
 public class EscolhaHumor extends JFrame {
@@ -266,16 +270,45 @@ public class EscolhaHumor extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
-				try {
-					Principal.echonestMagic();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				JFileChooser fc = new JFileChooser(); 
+				fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				fc.setDialogTitle("Escolha um diretório que contenha apenas músicas");
+				fc.setApproveButtonText("Escolher");
+				int res = fc.showOpenDialog(null);
+				if(res == JFileChooser.APPROVE_OPTION){  
+					File diretorio = fc.getSelectedFile();     
+					String local = diretorio.getAbsolutePath();
+					local = local +  File.separatorChar;
+					String directoryName = local;
+					String diretorioo = directoryName.replace('\\','/');
+					if(diretorioo.endsWith("/")){
+						diretorioo = diretorioo.substring(0, diretorioo.length()-1);
+					}
+					//System.out.println("diretorioo" + diretorioo);
+					
+					
+					
+					
+					try {
+						Principal.echonestMagic(diretorioo);
+					}catch(NoMusicFoundExpection ex){
+					
+							JOptionPane.showMessageDialog(null, "Escolha uma pasta que contenha arquivos de músicas","ERRO", JOptionPane.ERROR_MESSAGE, null);
+					
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					Vector<Musica> listaPorHumor = splitList(valencia, ativacao);
+					Player framePlayer = new Player(valencia, ativacao,listaPorHumor);
+					framePlayer.setVisible(true);
+					
+					
+				}else { 
+					JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum diretorio.");
 				}
 				
-				Vector<Musica> listaPorHumor = splitList(valencia, ativacao);
-				Player framePlayer = new Player(valencia, ativacao,listaPorHumor);
-				framePlayer.setVisible(true);
 					
 			
 			}

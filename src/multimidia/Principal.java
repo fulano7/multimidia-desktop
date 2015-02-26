@@ -25,7 +25,7 @@ import com.echonest.api.v4.Track.AnalysisStatus;
 public class Principal {
 	public static Vector<Musica> listaMusicas =  new Vector<Musica>();
 	
-	public static void echonestMagic() throws Exception {
+	public static void echonestMagic(String diretorio) throws Exception {
 		final Instant begin = Instant.now();
 
 		int analysisCount = 0;
@@ -36,8 +36,9 @@ public class Principal {
 		apiKeys.put(3, "AURMV2OX6ZAGVRXFN ");
 		apiKeys.put(4, "B8JTSHJGCDLFTCPKM ");
 		apiKeys.put(5, "3FWTLRQV62Z6CIG4B ");
-
-		final File musicDir = new File("C:\\Users\\irvm\\Music\\testes"); // Diretório sensível.
+		
+		
+		final File musicDir = new File(diretorio); 
 		int valencia = -1;
 		int ativacao = -1;
 		
