@@ -14,7 +14,7 @@ import javazoom.jlgui.basicplayer.BasicPlayerListener;
 public class PlayerHandler implements BasicPlayerListener {
 	private PrintStream out = null;
 	
-	public static boolean paused, stopped;
+	public boolean paused, stopped;
 	private BasicPlayer player;
 	private BasicController control = (BasicController) player;
 	private String current;
@@ -107,7 +107,7 @@ public class PlayerHandler implements BasicPlayerListener {
 
 	public void stateUpdated(BasicPlayerEvent event) {
 		display("stateUpdated : " + event.toString());
-		if (event.STOPPED==event.getCode()){
+		if (BasicPlayerEvent.STOPPED==event.getCode()){
 			stopped = true;
 		}
 				

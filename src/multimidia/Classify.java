@@ -21,7 +21,7 @@ public class Classify {
 	 * @param attributeSelectionObjPath caminho pra arquivo que armazena uma instancia da classe de selecao de atributos.
 	 * @param modelObjPath caminho pra arquivo que armazena o modelo treinado (classificador)
 	 * @param instancesPath caminho para o arquivo arff com as instancias
-	 * @return Por enquanto, uma string com os resultados da avaliacao
+	 * @return Uma string com os resultados da avaliacao
 	 * @throws Exception
 	 */
 	public static String classifyInstances(String attributeSelectionObjPath, String modelObjPath, String instancesPath) throws Exception{

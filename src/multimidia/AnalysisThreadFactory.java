@@ -13,9 +13,9 @@ public final class AnalysisThreadFactory implements ThreadFactory {
 
 	@Override
 	public final Thread newThread(Runnable r) {
-		final Thread thread = Executors.defaultThreadFactory().newThread(r);
+		Thread thread = Executors.defaultThreadFactory().newThread(r);
 		thread.setName("AnalysisThread#" + mThreadId.incrementAndGet());
-
+		thread.setDaemon(true);
 		return thread;
 	}
 }

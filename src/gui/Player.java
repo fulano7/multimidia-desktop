@@ -1,11 +1,9 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -35,22 +33,6 @@ public class Player extends JFrame {
 	public static JLabel lblnext;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Player frame = new Player(valencia, ativacao,listaPorHumor);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public Player(final int valencia, final int ativacao, final Vector<Musica> listaPorHumor) {
@@ -62,7 +44,7 @@ public class Player extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JList list = new JList(listaPorHumor);
+		JList<Musica> list = new JList<Musica>(listaPorHumor);
 		list.setBackground(Color.WHITE);
 		list.setBounds(43, 387, 420, -321);
 		contentPane.add(list);

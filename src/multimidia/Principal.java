@@ -23,7 +23,7 @@ import com.echonest.api.v4.Track;
 import com.echonest.api.v4.Track.AnalysisStatus;
 
 public class Principal {
-	public static Vector<Musica> listaMusicas =  new Vector<Musica>();
+	public volatile static Vector<Musica> listaMusicas =  new Vector<Musica>();
 	
 	public static void echonestMagic(String diretorio) throws Exception {
 		final Instant begin = Instant.now();
@@ -54,7 +54,7 @@ public class Principal {
 			final AtomicInteger musicCount = new AtomicInteger();
 			
 			System.out.println("Quantidade de músicas encontradas: " + musicFiles.size());
-			if(musicFiles.size()==0) throw new NoMusicFoundExpection();
+			if(musicFiles.size()==0) throw new NoMusicFoundException(diretorio);
 			
 			final EchoNestClientPool clients = new EchoNestClientPool(apiKeys);
 

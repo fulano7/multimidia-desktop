@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -21,11 +20,12 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import multimidia.Musica;
-import multimidia.NoMusicFoundExpection;
+import multimidia.NoMusicFoundException;
 import multimidia.Principal;
 
 public class EscolhaHumor extends JFrame {
 
+	private static final long serialVersionUID = -1567739626106015815L;
 	private JPanel contentPane;
 	private int valencia = 1; // 1 = feliz, 0 = triste
 	private int ativacao = 1; // 1 =  agitado, 0 = calmo
@@ -142,7 +142,7 @@ public class EscolhaHumor extends JFrame {
 		contentPane.add(slider);
 		
 		
-		Hashtable labelHorizSlider = new Hashtable();
+		Hashtable<Integer,JLabel> labelHorizSlider = new Hashtable<Integer,JLabel>();
 		labelHorizSlider.put(new Integer (0), new JLabel("Calmo"));
 		labelHorizSlider.put(new Integer (slider.getMaximum()), new JLabel ("Agitado"));
 		slider.setLabelTable(labelHorizSlider);
@@ -196,7 +196,7 @@ public class EscolhaHumor extends JFrame {
 		
 		contentPane.add(slider_1);
 		
-		Hashtable labelVertSlider = new Hashtable();
+		Hashtable<Integer,JLabel> labelVertSlider = new Hashtable<Integer,JLabel>();
 		labelVertSlider.put(new Integer (0), new JLabel("Triste"));
 		labelVertSlider.put(new Integer (slider_1.getMaximum()), new JLabel ("Feliz"));
 		slider_1.setLabelTable(labelVertSlider);
@@ -291,7 +291,7 @@ public class EscolhaHumor extends JFrame {
 					
 					try {
 						Principal.echonestMagic(diretorioo);
-					}catch(NoMusicFoundExpection ex){
+					}catch(NoMusicFoundException ex){
 					
 							JOptionPane.showMessageDialog(null, "Escolha uma pasta que contenha arquivos de músicas","ERRO", JOptionPane.ERROR_MESSAGE, null);
 					
