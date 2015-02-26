@@ -44,7 +44,7 @@ public class Player extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		player = new PlayerHandler();
+		player = new PlayerHandler(listaPorHumor);
 
 		JList<Musica> list = new JList<Musica>(listaPorHumor);
 		list.setBackground(Color.WHITE);
@@ -103,26 +103,24 @@ public class Player extends JFrame {
 		contentPane.add(lblprev);
 
 		lblpp = new JLabel("");
+		// esta funcionando como botao de play/pause.
+		// execuçao da musica começa logo quando inicializa a janela,
+		// sem o usuario precisar pressionar o play.
 		lblpp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if(playing == false){
 					lblpp.setIcon(new ImageIcon(Player.class.getResource("/imgs/pp_red2.png")));
-					player.setCurrent(listaPorHumor.get(0).getCaminho());
 					playing = true;
-					while (player.stopped==false);
-					playing = false;
-					player.setCurrent(listaPorHumor.get(1).getCaminho());
+					try{
+						player.resume();
+					} catch (BasicPlayerException e){
+						e.printStackTrace();
+					}
 				}else{
 					playing = false;
 					lblpp.setIcon(new ImageIcon(Player.class.getResource("/imgs/pp_red.png")));
-					try {
-						player.resume();
-					} catch (BasicPlayerException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
+					player.pause();
 				}
 			}
 		});
@@ -189,8 +187,10 @@ public class Player extends JFrame {
 			lblHumor2.setText("Entusiasmado");
 			System.out.println(lblHumor2.getText());
 		}
-
-
+		// execuçao da musica começa logo quando inicializa a janela,
+		// sem o usuario precisar pressionar o play.
+		playing = true;
+		player.next();
 	}
 
 }

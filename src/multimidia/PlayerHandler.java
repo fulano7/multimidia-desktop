@@ -3,6 +3,7 @@ package multimidia;
 import java.io.File;
 import java.io.PrintStream;
 import java.util.Map;
+import java.util.Vector;
 
 import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayer;
@@ -13,14 +14,14 @@ import javazoom.jlgui.basicplayer.BasicPlayerListener;
 
 public class PlayerHandler implements BasicPlayerListener {
 	private PrintStream out = null;
-	
-	public boolean paused, stopped;
+	private Vector<Musica> listaReproducao;
+	public boolean paused, stopped, userStopped;
 	private BasicPlayer player;
 	private BasicController control = (BasicController) player;
-	private String current;
+	private int last, current;
 	
 	// testes
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			PlayerHandler test = new PlayerHandler();
 			test.play("C:\\Users\\irvm\\Music\\A-ha\\Totally 80's - Disc 1\\Take On Me.mp3");
@@ -34,24 +35,40 @@ public class PlayerHandler implements BasicPlayerListener {
 			e.printStackTrace();
 		}
 		
-	}
+	}*/
 
-	public PlayerHandler() {
+	public PlayerHandler(Vector<Musica> listaReproducao) {
 		this.out = System.out;
 		this.player = new BasicPlayer();
         this.control = (BasicController) player;
         this.player.addBasicPlayerListener(this);
         this.paused = false;
         this.stopped = true;
+        this.userStopped = true;
+        this.listaReproducao = listaReproducao;
+        this.last = listaReproducao.size()-1;
+        this.current = 0;
 	}
 	
-	public void setCurrent(String current){ // caminho da musica
+	public void next(){
+		if(!stopped) this.stop();
+		this.current = this.current == this.last ? 0 : this.current+1;
+		this.play(this.listaReproducao.get(this.current).getCaminho());
+	}
+	
+	public void previous(){
+		if(!stopped) this.stop();
+		this.current = this.current == 0 ? this.last : this.current-1;
+		this.play(this.listaReproducao.get(this.current).getCaminho());
+	}
+	
+	/*public void setCurrent(String current){ // caminho da musica
 		if (!stopped){
 		this.stop();
 		}
 		this.current = current;
 		this.play(this.current);
-	}
+	}*/
 
 	public void play(String filename) {
 
@@ -59,7 +76,6 @@ public class PlayerHandler implements BasicPlayerListener {
 		try {
 			if (stopped) {
 				control.open(new File(filename));
-
 				control.play();
 				control.setPan(0.0);
 				this.stopped = false;
@@ -107,8 +123,13 @@ public class PlayerHandler implements BasicPlayerListener {
 
 	public void stateUpdated(BasicPlayerEvent event) {
 		display("stateUpdated : " + event.toString());
-		if (BasicPlayerEvent.STOPPED==event.getCode()){
-			stopped = true;
+		if(BasicPlayerEvent.EOM==event.getCode()){
+			userStopped = false;
+		} else if (BasicPlayerEvent.STOPPED==event.getCode()){
+			if(!userStopped){
+				userStopped = true;
+				next();
+			}
 		}
 				
 	}
