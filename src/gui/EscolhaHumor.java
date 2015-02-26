@@ -296,7 +296,6 @@ public class EscolhaHumor extends JFrame {
 							JOptionPane.showMessageDialog(null, "Escolha uma pasta que contenha arquivos de músicas","ERRO", JOptionPane.ERROR_MESSAGE, null);
 					
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					

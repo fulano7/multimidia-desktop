@@ -8,6 +8,7 @@ import weka.core.converters.ConverterUtils.DataSource;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -58,9 +59,10 @@ public class Classify {
 		instances.setClassIndex(instances.numAttributes() - 1);
 
 		// performing attribute selection
-		AttributeSelection as = (AttributeSelection) weka.core.SerializationHelper.read(attributeSelectionObjPath);
-		instances = as.reduceDimensionality(instances);
-		
+		if(new File(attributeSelectionObjPath).exists()){
+			AttributeSelection as = (AttributeSelection) weka.core.SerializationHelper.read(attributeSelectionObjPath);
+			instances = as.reduceDimensionality(instances);
+		}
 		// label this single instance
 		// clsLabel is 0.0 or 1.0
 		double clsLabel = classifier.classifyInstance(instances.instance(0));
@@ -77,8 +79,10 @@ public class Classify {
 		instances.setClassIndex(instances.numAttributes() - 1);
 
 		// performing attribute selection
-		AttributeSelection as = (AttributeSelection) weka.core.SerializationHelper.read(attributeSelectionObjPath);
-		instances = as.reduceDimensionality(instances);
+		if(new File(attributeSelectionObjPath).exists()){
+			AttributeSelection as = (AttributeSelection) weka.core.SerializationHelper.read(attributeSelectionObjPath);
+			instances = as.reduceDimensionality(instances);
+		}
 		
 		// label this single instance
 		// clsLabel is 0.0 or 1.0
