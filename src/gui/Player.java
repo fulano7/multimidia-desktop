@@ -24,13 +24,13 @@ public class Player extends JFrame {
 	private static int valencia;
 	private static int ativacao;
 	private static Vector<Musica> listaPorHumor;
-	private PlayerHandler player = new PlayerHandler();
+	private PlayerHandler player;
 	private boolean playing = false;
-	public static JLabel lblleft;
-	public static JLabel lblprev;
-	public static JLabel lblpp;
-	public static JLabel lblrandom;
-	public static JLabel lblnext;
+	public JLabel lblleft;
+	public JLabel lblprev;
+	public JLabel lblpp;
+	public JLabel lblrandom;
+	public JLabel lblnext;
 
 	/**
 	 * Create the frame.
@@ -43,6 +43,8 @@ public class Player extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		player = new PlayerHandler();
 
 		JList<Musica> list = new JList<Musica>(listaPorHumor);
 		list.setBackground(Color.WHITE);
