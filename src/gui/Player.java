@@ -21,9 +21,6 @@ public class Player extends JFrame {
 	private static final long serialVersionUID = 7731945534799370506L;
 
 	private JPanel contentPane;
-	private static int valencia;
-	private static int ativacao;
-	private static Vector<Musica> listaPorHumor;
 	private PlayerHandler player;
 	private boolean playing = false;
 	public JLabel lblleft;
