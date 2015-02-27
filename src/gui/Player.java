@@ -162,10 +162,6 @@ public class Player extends JFrame {
 		lblrandom.setIcon(new ImageIcon(Player.class.getResource("/imgs/random_red.png")));
 		lblrandom.setBounds(443, 413, 74, 43);
 		contentPane.add(lblrandom);
-
-		Player.valencia = valencia;
-		Player.ativacao = ativacao;
-		Player.listaPorHumor = listaPorHumor;
 		System.out.println("size : "+ listaPorHumor.size());
 		this.setResizable(false);
 
