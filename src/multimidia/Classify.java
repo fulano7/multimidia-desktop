@@ -128,23 +128,6 @@ public class Classify {
 		writer.close();
 	}
 	
-	public static void main(String[] args){
-		try {
-			
-			/*
-			String s = classifySingleUnlabeledInstance(new MusicInstance(80.207, 0.49482558127419307, 0.031195728086989782, 0.09090272012346592, 0.33858609898708314), "trained.0.model", "trained.0.attributeselection");
-			// Adele - 
-			System.out.println(s);
-			String s2 = classifySingleUnlabeledInstance(new MusicInstance(140.008, 0.436097823900063, 0.03222021207000658, 0.1057052477494161, 0.6061255397822767), "trained.0.model", "trained.0.attributeselection");
-			System.out.println(s2);*/
-			// Thacu - I have to go now (Jammil e uma noites)
-			String s3 = classifyActivationSingleUnlabeledInstance(new MusicInstance(130.978,0.7391542741438012,0.03611242218796784,0.2816590330817881, 0.8357437096827847), "trained2.0.model", "trained2.0.attributeselection");
-			System.out.println(s3);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 }
 
 class MusicInstance{
@@ -182,8 +165,7 @@ class MusicInstance{
 	public String toArffValenceString(){
 		return (this.tempo+" , "+this.dance+" , "+this.speech+" , "+this.liveness+" , "+this.energy+" , "+this.valenceClass+" \n");
 	}
-	
-	// TODO :{ estes metodos
+
 	public String toArffSingleInstanceFileActivationString(){
 		return "@relation whatever\n\n"+
 				"@attribute Tempo numeric\n"+
@@ -199,7 +181,6 @@ class MusicInstance{
 	public String toArffActivationString(){
 		return (this.tempo+" , "+this.dance+" , "+this.speech+" , "+this.liveness+" , "+this.energy+" , "+this.activationClass+" \n");
 	}
-	// }// fim - TODO
 	
 	public void setValenceClass(String valenceClass){
 		this.valenceClass = valenceClass;

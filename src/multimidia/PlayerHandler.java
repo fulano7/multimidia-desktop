@@ -19,23 +19,6 @@ public class PlayerHandler implements BasicPlayerListener {
 	private BasicPlayer player;
 	private BasicController control = (BasicController) player;
 	private int last, current;
-	
-	// testes
-	/*public static void main(String[] args) {
-		try {
-			PlayerHandler test = new PlayerHandler();
-			test.play("C:\\Users\\irvm\\Music\\A-ha\\Totally 80's - Disc 1\\Take On Me.mp3");
-			Thread.sleep(3000);
-			test.pause();
-			Thread.sleep(2000);
-			test.resume();
-			Thread.sleep(2000);
-			test.stop();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}*/
 
 	public PlayerHandler(Vector<Musica> listaReproducao) {
 		this.out = System.out;
@@ -52,14 +35,18 @@ public class PlayerHandler implements BasicPlayerListener {
 	
 	public void next(){
 		if(!stopped) this.stop();
-		this.current = this.current == this.last ? 0 : this.current+1;
-		this.play(this.listaReproducao.get(this.current).getCaminho());
+		if(this.current != this.last){
+			this.current++;
+			this.play(this.listaReproducao.get(this.current).getCaminho());
+		}
 	}
 	
 	public void previous(){
 		if(!stopped) this.stop();
-		this.current = this.current == 0 ? this.last : this.current-1;
-		this.play(this.listaReproducao.get(this.current).getCaminho());
+		if(this.current != 0){
+			this.current = this.current == 0 ? this.last : this.current-1;
+			this.play(this.listaReproducao.get(this.current).getCaminho());
+		}
 	}
 	
 	/*public void setCurrent(String current){ // caminho da musica
