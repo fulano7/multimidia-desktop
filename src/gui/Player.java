@@ -131,8 +131,10 @@ public class Player extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				lblnext.setIcon(new ImageIcon(Player.class.getResource("/imgs/next_red2.png")));
 				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
+					lblpp.setIcon(new ImageIcon(Player.class.getResource("/imgs/pp_red2.png")));
+					playing = true;
+					player.next();
+				} catch (Exception e) {
 				 
 					e.printStackTrace();
 				}
