@@ -44,7 +44,7 @@ public class PlayerHandler implements BasicPlayerListener {
 	public void previous(){
 		if(!stopped) this.stop();
 		if(this.current != 0){
-			this.current = this.current == 0 ? this.last : this.current-1;
+			this.current--;
 			this.play(this.listaReproducao.get(this.current).getCaminho());
 		}
 	}

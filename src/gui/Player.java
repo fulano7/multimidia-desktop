@@ -85,8 +85,10 @@ public class Player extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				lblprev.setIcon(new ImageIcon(Player.class.getResource("/imgs/back_red2.png")));
 				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
+					lblpp.setIcon(new ImageIcon(Player.class.getResource("/imgs/pp_red2.png")));
+					playing = true;
+					player.previous();
+				} catch (Exception e) {
 				 
 					e.printStackTrace();
 				}
@@ -121,7 +123,7 @@ public class Player extends JFrame {
 				}
 			}
 		});
-		lblpp.setIcon(new ImageIcon(Player.class.getResource("/imgs/pp_red.png")));
+		lblpp.setIcon(new ImageIcon(Player.class.getResource("/imgs/pp_red2.png")));
 		lblpp.setBounds(234, 413, 70, 43);
 		contentPane.add(lblpp);
 
