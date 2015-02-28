@@ -30,20 +30,20 @@ public class PlayerHandler implements BasicPlayerListener {
         this.userStopped = true;
         this.listaReproducao = listaReproducao;
         this.last = listaReproducao.size()-1;
-        this.current = 0;
+        this.current = -1; // ~ gamb
 	}
 	
 	public void next(){
-		if(!stopped) this.stop();
 		if(this.current != this.last){
+			if(!stopped) this.stop();
 			this.current++;
 			this.play(this.listaReproducao.get(this.current).getCaminho());
 		}
 	}
 	
 	public void previous(){
-		if(!stopped) this.stop();
-		if(this.current != 0){
+		if(this.current > 0){
+			if(!stopped) this.stop();
 			this.current--;
 			this.play(this.listaReproducao.get(this.current).getCaminho());
 		}
