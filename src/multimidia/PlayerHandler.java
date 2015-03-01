@@ -1,15 +1,21 @@
 package multimidia;
 
+import gui.Player;
+import gui.SelectedListCellRenderer;
+
 import java.io.File;
 import java.io.PrintStream;
 import java.util.Map;
 import java.util.Vector;
+
+import javax.swing.JList;
 
 import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import javazoom.jlgui.basicplayer.BasicPlayerListener;
+
 
 
 public class PlayerHandler implements BasicPlayerListener {
@@ -19,8 +25,9 @@ public class PlayerHandler implements BasicPlayerListener {
 	private BasicPlayer player;
 	private BasicController control = (BasicController) player;
 	private int last, current, numMusica;
+	public static JList list;
 
-	public PlayerHandler(Vector<Musica> listaReproducao, int numMusica) {
+	public PlayerHandler(Vector<Musica> listaReproducao, int numMusica, JList list) {
 		this.out = System.out;
 		this.player = new BasicPlayer();
 		this.control = (BasicController) player;
@@ -31,8 +38,8 @@ public class PlayerHandler implements BasicPlayerListener {
 		this.listaReproducao = listaReproducao;
 		this.last = listaReproducao.size()-1;
 		this.current = -1; // ~ gamb
-		this.numMusica = numMusica;
-
+		this.list = list;
+		
 	}
 	public int next(){
 		if(this.current != this.last){
@@ -40,8 +47,9 @@ public class PlayerHandler implements BasicPlayerListener {
 			this.current++;
 			System.out.println("current : " + current );
 			this.play(this.listaReproducao.get(this.current).getCaminho());
-			 System.out.println(this.listaReproducao.get(this.current).getCaminho());
-			return numMusica+1;
+			System.out.println(this.listaReproducao.get(this.current).getCaminho());
+			return current;
+			
 		}else{
 			return -1;
 		}
@@ -53,7 +61,7 @@ public class PlayerHandler implements BasicPlayerListener {
 			System.out.println("current : " + current);
 			this.play(this.listaReproducao.get(this.current).getCaminho());
 			System.out.println(this.listaReproducao.get(this.current).getCaminho());
-			return numMusica-1;
+			return current;
 		}else{
 			return -1;
 		}
@@ -115,8 +123,16 @@ this.play(this.current);
 		} else if (BasicPlayerEvent.STOPPED==event.getCode()){
 			if(!userStopped){
 				userStopped = true;
-				next();
-				numMusica++;
+				next(); // next ja acrescenta o current 
+				Player.numMusica = current;
+				
+				System.out.println("handler ~~~current "+ current);
+				System.out.println("num musica player" + Player.numMusica);
+				
+				list.setSelectedIndex(Player.numMusica);
+				SelectedListCellRenderer.getDefaultLocale();
+				System.out.println("saiu do state updade, devia ter setado o item");
+				
 			}
 		}
 	}

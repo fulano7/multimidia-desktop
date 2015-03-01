@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -64,11 +63,15 @@ public class EscolhaHumor extends JFrame {
 	 * Create the frame.
 	 */
 	public EscolhaHumor() {
+		
+		
 		setType(Type.UTILITY);
 		setResizable(false);
 		setTitle("\"Projeto de Multim\u00EDdia\"");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 533, 496);
+		setLocationRelativeTo(null); 
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 204, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -262,8 +265,6 @@ public class EscolhaHumor extends JFrame {
 			}
 
 		});
-
-
 
 
 		invert.setIcon(new ImageIcon(EscolhaHumor.class.getResource("/imgs/invert_red.png")));

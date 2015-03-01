@@ -13,10 +13,10 @@
 	<classpathentry kind="lib" path="libs/json_simple-1.1.jar"/>
 	<classpathentry kind="lib" path="libs/jspeex0.9.7.jar"/>
 	<classpathentry kind="lib" path="libs/kj_dsp1.1.jar"/>
-	<classpathentry kind="lib" path="libs/mp3spi1.9.4.jar"/>
 	<classpathentry kind="lib" path="libs/threetenbp-1.2.jar"/>
 	<classpathentry kind="lib" path="libs/tritonus_share.jar"/>
 	<classpathentry kind="lib" path="libs/vorbisspi1.0.2.jar"/>
 	<classpathentry kind="lib" path="libs/weka.jar"/>
+	<classpathentry kind="lib" path="libs/mp3spi1.9.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
