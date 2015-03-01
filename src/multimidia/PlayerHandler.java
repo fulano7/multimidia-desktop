@@ -117,7 +117,7 @@ this.play(this.current);
 		}
 	}
 	public void stateUpdated(BasicPlayerEvent event) {
-		//display("stateUpdated : " + event.toString());
+		display("stateUpdated : " + event.toString());
 		if(BasicPlayerEvent.EOM==event.getCode()){
 			userStopped = false;
 		} else if (BasicPlayerEvent.STOPPED==event.getCode()){
