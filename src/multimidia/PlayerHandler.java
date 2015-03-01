@@ -18,7 +18,7 @@ public class PlayerHandler implements BasicPlayerListener {
 	public boolean paused, stopped, userStopped;
 	private BasicPlayer player;
 	private BasicController control = (BasicController) player;
-	private int last, numMusica, current;
+	private int last, current, numMusica;
 
 	public PlayerHandler(Vector<Musica> listaReproducao, int numMusica) {
 		this.out = System.out;
@@ -38,7 +38,9 @@ public class PlayerHandler implements BasicPlayerListener {
 		if(this.current != this.last){
 			if(!stopped) this.stop();
 			this.current++;
+			System.out.println("current : " + current );
 			this.play(this.listaReproducao.get(this.current).getCaminho());
+			 System.out.println(this.listaReproducao.get(this.current).getCaminho());
 			return numMusica+1;
 		}else{
 			return -1;
@@ -48,7 +50,9 @@ public class PlayerHandler implements BasicPlayerListener {
 		if(this.current > 0){
 			if(!stopped) this.stop();
 			this.current--;
+			System.out.println("current : " + current);
 			this.play(this.listaReproducao.get(this.current).getCaminho());
+			System.out.println(this.listaReproducao.get(this.current).getCaminho());
 			return numMusica-1;
 		}else{
 			return -1;
@@ -75,11 +79,11 @@ this.play(this.current);
 		}
 	}
 	public void opened(Object stream, Map properties) {
-		display("opened : " + properties.toString());
+		//display("opened : " + properties.toString());
 	}
 	public void progress(int bytesread, long microseconds, byte[] pcmdata,
 			Map properties) {
-		display("progress : " + properties.toString());
+		//display("progress : " + properties.toString());
 	}
 	public void stop(){
 		try{
@@ -105,7 +109,7 @@ this.play(this.current);
 		}
 	}
 	public void stateUpdated(BasicPlayerEvent event) {
-		display("stateUpdated : " + event.toString());
+		//display("stateUpdated : " + event.toString());
 		if(BasicPlayerEvent.EOM==event.getCode()){
 			userStopped = false;
 		} else if (BasicPlayerEvent.STOPPED==event.getCode()){
@@ -117,10 +121,13 @@ this.play(this.current);
 		}
 	}
 	public void setController(BasicController controller) {
-		display("setController : " + controller);
+//   display("setController : " + controller);
+		int i =0;
 	}
+	
 	public void display(String msg) {
-		if (out != null)
-			out.println(msg);
+   //		if (out != null)
+//			out.println(msg);
+		int i = 0;
 	}
 }
