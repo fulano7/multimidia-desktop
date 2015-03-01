@@ -137,13 +137,13 @@ this.play(this.current);
 		}
 	}
 	public void setController(BasicController controller) {
-//   display("setController : " + controller);
-		int i =0;
+   display("setController : " + controller);
+		
 	}
 	
 	public void display(String msg) {
-   //		if (out != null)
-//			out.println(msg);
-		int i = 0;
+   		if (out != null)
+			out.println(msg);
+		
 	}
 }
