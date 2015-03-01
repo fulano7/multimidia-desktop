@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -71,7 +72,7 @@ public class EscolhaHumor extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblEscolhaOSeu = new JLabel("Escolha o seu humor :");
-		lblEscolhaOSeu.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 12));
+		lblEscolhaOSeu.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 14));
 		lblEscolhaOSeu.setBounds(23, 11, 167, 31);
 		contentPane.add(lblEscolhaOSeu);
 		
@@ -300,14 +301,16 @@ public class EscolhaHumor extends JFrame {
 					}
 					
 					Vector<Musica> listaPorHumor = splitList(valencia, ativacao);
-					Player framePlayer = new Player(valencia, ativacao,listaPorHumor);
-					framePlayer.setVisible(true);
+					Player framePlayer;
+					
+						framePlayer = new Player(valencia, ativacao,listaPorHumor);
+						framePlayer.setVisible(true);
+					
 					
 					
 				}else { 
 					JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum diretorio.");
 				}
-				
 					
 			
 			}
