@@ -18,7 +18,7 @@ public class PlayerHandler implements BasicPlayerListener {
 	public boolean paused, stopped, userStopped;
 	private BasicPlayer player;
 	private BasicController control = (BasicController) player;
-	private int last, current, numMusica;
+	private int last, numMusica, current;
 
 	public PlayerHandler(Vector<Musica> listaReproducao, int numMusica) {
 		this.out = System.out;

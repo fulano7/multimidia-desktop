@@ -113,6 +113,18 @@ public class Player extends JFrame {
 				lblprev.setIcon(new ImageIcon(Player.class.getResource("/imgs/back_red.png")));
 			}
 		});
+		lblprev.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0){
+				lblprev.setIcon(new ImageIcon(Player.class.getResource("/imgs/back_red2.png")));
+			}
+		});
+		lblprev.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent arg0){
+				lblprev.setIcon(new ImageIcon(Player.class.getResource("/imgs/back_red.png")));
+			}
+		});
 		lblprev.setIcon(new ImageIcon(Player.class.getResource("/imgs/back_red.png")));
 		lblprev.setBounds(129, 413, 80, 43);
 		contentPane.add(lblprev);
@@ -149,9 +161,7 @@ public class Player extends JFrame {
 		lblnext.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				lblnext.setIcon(new ImageIcon(Player.class.getResource("/imgs/next_red2.png")));
 				try {
-					lblpp.setIcon(new ImageIcon(Player.class.getResource("/imgs/pp_red2.png")));
 					playing = true;
 					numMusica= player.next();
 					list.getComponent(numMusica).setFont(new Font("Microsoft JhengHei UI", Font.BOLD, 16));
@@ -159,6 +169,18 @@ public class Player extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				lblnext.setIcon(new ImageIcon(Player.class.getResource("/imgs/next_red.png")));
+			}
+		});
+		lblnext.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0){
+				lblnext.setIcon(new ImageIcon(Player.class.getResource("/imgs/next_red2.png")));
+			}
+		});
+		lblnext.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent arg0){
 				lblnext.setIcon(new ImageIcon(Player.class.getResource("/imgs/next_red.png")));
 			}
 		});
