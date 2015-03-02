@@ -41,10 +41,10 @@ public class Principal {
 		int ativacao = -1;
 		
 	
-		String modelValencia = "arquivos/modelValencia"; 
-		String attributeSelectionValencia = "arquivos/attributeSelectionValencia";
-		String modelAtivacao= "arquivos/modelAtivacao"; 
-		String attributeSelectionAtivacao = "arquivos/attributeSelectionAtivacao";
+		String modelValencia = "/arquivos/modelValencia"; 
+		String attributeSelectionValencia = "/arquivos/attributeselectionValencia";
+		String modelAtivacao= "/arquivos/modelAtivacao"; 
+		String attributeSelectionAtivacao = "/arquivos/attributeselectionAtivacao";
 
 		if (musicDir.exists() && musicDir.isDirectory()) {
 			final PriorityQueue<File> musicFiles = (PriorityQueue<File>) FileUtils.listFiles(musicDir, new RegexFileFilter(".*\\.(mp3)$"), TrueFileFilter.INSTANCE);
